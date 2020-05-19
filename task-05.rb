@@ -27,7 +27,7 @@ while true do
     puts "[2]：No"
 
     input = gets.to_i
-    call_out = "hellow!"
+    call_out = "hello!"
 
     if input == 1 then
         action = WorkplaceCommunication.new

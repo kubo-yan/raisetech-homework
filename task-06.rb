@@ -1,11 +1,12 @@
 class Communication
 
-    @@line = "----------------------"
-
     def initialize
+
+        @line = "----------------------"
+
         begin
 
-            puts @@line
+            puts @line
             puts "Hello!!"
             puts "誰かに挨拶されました。リアクションしましょう。\n[数字を入力してください]"
             puts "[1]:友人\n[2]:同僚\n[3]:上司"
@@ -14,7 +15,7 @@ class Communication
             1/@who.to_i
 
         rescue
-            puts "#{@@line}\nError：もう一度よくみて[文字列、0以外]"
+            puts "#{@line}\nError：もう一度よくみて[文字列、0以外]"
             sleep 2
             retry
         end
@@ -23,12 +24,12 @@ class Communication
     end
 
     def greet
-        if @who.to_i == 1 then
-            puts "#{@@line}\n私：Yoo!"
-        elsif @who.to_i == 2 or @who.to_i == 3 then
-            puts "#{@@line}\n私：(*- -)(*_ _)ﾍﾟｺ"
+        if @who.to_i == 1
+            puts "#{@line}\n私：Yoo!"
+        elsif @who.to_i == 2 or @who.to_i == 3
+            puts "#{@line}\n私：(*- -)(*_ _)ﾍﾟｺ"
         else
-            puts "#{@@line}\n私：知らない人だからスルー"
+            puts "#{@line}\n私：知らない人だからスルー"
         end
     end
 
@@ -37,14 +38,14 @@ end
 class WorkplaceCommunication < Communication
 
     def greet_workplace
-        if @who.to_i == 1 then
-            puts "#{@@line}\n私：Hello! でも、なんでここに？？"
-        elsif @who.to_i == 2 then
-            puts "#{@@line}\n私：Hellow!"
-        elsif @who.to_i == 3 then
-            puts "#{@@line}\n私：Hello! Boss! (*- -)(*_ _)ﾍﾟｺ"
+        if @who.to_i == 1
+            puts "#{@line}\n私：Hello! でも、なんでここに？？"
+        elsif @who.to_i == 2
+            puts "#{@line}\n私：Hello!"
+        elsif @who.to_i == 3
+            puts "#{@line}\n私：Hello! Boss! (*- -)(*_ _)ﾍﾟｺ"
         else
-            puts "#{@@line}\n私：誰⁉︎　警備員さん！！"
+            puts "#{@line}\n私：誰⁉︎　警備員さん！！"
         end
     end
 
@@ -58,11 +59,11 @@ while true do
 
     place = gets.to_i
 
-    if place == 1 then
+    if place == 1
         action = Communication.new
         action.greet
         exit
-    elsif place == 2 then
+    elsif place == 2
         action = WorkplaceCommunication.new
         action.greet_workplace
         exit
